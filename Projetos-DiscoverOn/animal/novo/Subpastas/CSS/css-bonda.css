@@ -1,0 +1,336 @@
+@font-face {
+    font-family: 'Hatolie';
+    src: url('../font/Hatolie.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-image: linear-gradient(to right, rgba(16, 44, 28, 0.85), rgba(15, 18, 29, 0.5)), url(./../ListaMusicas/image/bonda.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-color: #0d1a12;
+    min-height: 100vh;
+    margin: 0;
+    padding: 50px 0;
+    background-color: #060008ec;
+    font-family: 'Matequn Historiya', 'Creattion Demo', 'Taken by Vultures', 'MetroPhotograph-DemoVersion-Regular', sans-serif;
+}
+
+.voltar {
+    background-color: gray;
+    width: 200px;
+    height: 100px;
+    font-size: 300%;
+    text-align: center;
+    text-transform: initial;
+    font-family: 'Hatolie';
+    color: white;
+    border-radius: 32px;
+    box-shadow: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.voltar:hover {
+    transform: scale(1.5);
+}
+
+.bonda1, .bonda2, .bonda3, .bonda4 {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px; 
+    width: 100%;
+    max-width: 900px;
+}
+
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.card-conteudo.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+p {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* --- BONDA 1 --- */
+.card-image-b1 {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.card-image-b1:hover { transform: scale(1.5); }
+
+.abre-b1 {
+    cursor: pointer;
+    background-color: #000;
+    border-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+}
+
+.text-b1 {
+    font-size: 5rem;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    color: #ffffff;
+}
+
+.painel-b1 {
+    background-color: #000;
+    border: 2px solid #ffffff;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+    color: #ffffff;
+.dsc-b1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+}
+
+.link-b1 {
+    display: inline-block;
+    background-color: #232222;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Comic Sans MS','Comic Sans', cursive, sans-serif;
+    color: white;
+    border-radius: 32px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* --- BONDA 2 --- */
+.card-image-b2 {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.card-image-b2:hover { transform: scale(1.5); }
+
+.abre-b2 {
+    cursor: pointer;
+    background-color: #f28a54;
+    border-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+}
+
+.text-b2 {
+    font-size: 5rem;
+    font-family: 'Cambria', serif;
+    color: #ffffff;
+}
+
+.painel-b2 {
+    background-color: #f28a54;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-family: 'Cambria', serif;
+.dsc-b2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+}
+
+.link-b2 {
+    display: inline-block;
+    background-color: #c17146;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Cambria', serif;
+    color: white;
+    border-radius: 32px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* --- BONDA 3 --- */
+.card-image-b3 {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.card-image-b3:hover { transform: scale(1.5); }
+
+.abre-b3 {
+    cursor: pointer;
+    background-color: #fd203d;
+    border-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+}
+
+.text-b3 {
+    font-size: 5rem;
+    font-family: 'Times New Roman', sans-serif;
+    color: #ffffff;
+}
+
+.painel-b3 {
+    background-color: #fd203d;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-family: 'Times New Roman', serif;
+.dsc-b3 {
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+}
+
+.link-b3 {
+    display: inline-block;
+    background-color: #bd182e;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Times New Roman', sans-serif;
+    color: white;
+    border-radius: 32px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* --- BONDA GOOD 4SS JOB --- */
+.card-image-b4 {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.card-image-b4:hover { transform: scale(1.5); }
+
+.abre-b4 {
+    cursor: pointer;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+}
+
+.text-b4 {
+    font-size: 5.5rem;
+    font-family: 'Hatolie', sans-serif;
+    color: #d5d5d5;
+}
+
+.painel-b4 {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    color: #d5d5d5;
+    font-family: 'Hatolie', sans-serif;
+.dsc-b4 {
+    color: #d5d5d5;
+    font-size: 3.5rem;
+}
+}
+
+.link-b4 {
+    display: inline-block;
+    background-color: #c7c5c5;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Hatolie', sans-serif;
+    color: #fff;
+    border-radius: 32px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* PAINEL COMPARTILHADO DE DESCRIÇÃO */
+.painel-descricao {
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease, padding 0.4s ease;
+}
+
+.painel-descricao.aberto {
+    max-height: 400rem;
+    opacity: 1;
+    padding: 20px;
+    transform: translateY(0);
+}
+
+.painel-descricao h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.painel-descricao p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 55px;
+}

@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: 
+  linear-gradient(rgba(0, 130, 166, 0.4), rgba(0, 0, 0, 0.9)), 
+  url("../image/varidation.jpg");
+
+  background-position: center top; /* Alinha pelo topo da imagem */
+  background-repeat: no-repeat;
+  background-size: 100% auto; /* Largura em 100% e altura automática */
+  background-attachment: fixed;
+  background-color: #000; /* Preenche o espaço sobrante com preto */
+}
+
+b{
+  font-weight: 700;
+}
+
+.voltar {
+  background-color: 0 auto;
+  width: 200px;
+  height: 100px;
+  font-size: 300%;
+  text-align: center;
+  text-transform: center;
+  font-family: 'Creattion Demo';
+  color: white;
+  border-radius: 32px;
+  box-shadow: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 160px;
+  overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateY(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0
+}
+
+.mudar-musica{
+  font-size: 20px;
+  text-align: center;
+}
+
+.proximo-album{
+  background-color:rgba(6, 152, 209, 0.2);
+  width: 2000px;
+  height: 150px;
+  font-size: 300%;
+  text-align: center;
+  text-transform: center;
+  font-family: 'Metro Photograph - Demo Version Regular';
+  color: white;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(6, 152, 209, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 160px;
+  transition: all 0.5s ease;
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateY(200px); /* POSIÇÃO PARA VIR DA DIREITA */
+  opacity: 0;
+}
+
+.proximo-album:hover{
+  background-color: rgba(0, 130, 166, 0.6);
+}
+
+.container{ 
+  max-width: 1280px;
+  height: 100vh;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.mudar-pagina{
+  background-color:rgba(6, 152, 209, 0.2);
+  width: 200px;
+  height: 100px;
+  font-size: 300%;
+  text-align: center;
+  text-transform: center;
+  font-family: 'Creattion Demo';
+  color: white;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(6, 152, 209, 0.5);
+  cursor: pointer;
+  text-decoration: none;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 160px;
+  transition: all 0.5s ease;
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateX(200px); /* POSIÇÃO PARA VIR DA DIREITA */
+  opacity: 0;
+
+}
+
+/* Animação para a troca de conteúdo via JavaScript */
+.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pequeno ajuste no botão */
+button.mudar-pagina {
+  border: none;
+  outline: none;
+}
+
+.mudar-pagina:hover{
+  background-color: rgba(0, 130, 166, 0.6);
+}
+
+.music-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.ç-image{
+  flex: 1.5;
+  height: 0 auto;
+  width: 0 auto;
+  border-radius: 50px;
+  overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateX(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0;
+
+  box-shadow: 0 10px 30px rgba(6, 152, 209, 0.5);
+}
+
+.ç-image img{
+  transition: 1s cubic-bezier(0.19, 1, 0.22, 1);  /* TRANSIÇÃO NA IMAGEM */
+}
+
+.ç-image:hover img{
+  transform: scale(1.2); /* TRANSIÇÃO NA IMAGEM */
+} 
+
+.c-information{
+  flex: 1;
+  margin: 20px;
+  border-radius: 20px;
+  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 22px;
+  color: #FFFFFF;
+
+  background-color: #1A1A1A;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateX(200px); /* POSIÇÃO PARA VIR DA DIREITA */
+  opacity: 0;
+
+  box-shadow: 0 10px 30px rgba(6, 152, 209, 0.5);
+}
+
+.c-list{
+  list-style: none;
+}
+
+.c-list li{
+  margin: 30px;
+}
+
+.c-list li p{
+  display: inline;
+}
+
+.c-list li img{
+  margin-right: 20px;
+  transition: 1s cubic-bezier(0.19, 1, 0.22, 1); /* TRANSIÇÃO NOS ITENS DAS LISTAS */
+}
+
+.c-list:hover li img{
+  transform: scale(2) rotate(-10deg); /* TRANSIÇÃO NOS ITENS DAS LISTAS */
+}
+
+.atita{
+  width: 40px;
+  height: auto;
+}
+
+.data{
+  width: 40px;
+  height: auto;
+}
+
+.leta{
+  width: 40px;
+  height: auto;
+}
+
+.micofone{
+  width: 40px;
+  height: auto;
+}
+
+/* ANIMAÇÃO PARA ENTRADA DO CONTEÚDO */
+
+@keyframes smooth { 
+  from{
+    opacity: 0;
+  }
+  to{ 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+

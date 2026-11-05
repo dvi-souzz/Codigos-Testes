@@ -1,0 +1,440 @@
+@font-face {
+    font-family: 'Taken by Vultures';
+    src: url('../font/Taken by Vultures Demo.otf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'Creattion Demo';
+    src: url('../font/Creattion Demo.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Matequn Historya';
+    src: url('../font/Matequn Historiya.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Taken by Vultures Alternates';
+    src: url('../font/Taken by Vultures Alternates Demo.otf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 50px 0;
+    font-family: 'Matequn Historiya', 'Creattion Demo', 'Taken by Vultures', 'MetroPhotograph-DemoVersion-Regular', sans-serif;
+    background-image: linear-gradient(to right, rgba(16, 44, 28, 0.85), rgba(184, 92, 18, 0.4), rgba(45, 12, 5, 0.9)), 
+    url('../imagem/vldbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-color: #0d1a12;
+}
+
+.voltar {
+    background-color: rgba(184, 92, 18, 0.4);
+    width: 200px;
+    height: 100px;
+    font-size: 300%;
+    text-align: center;
+    text-transform: initial;
+    font-family: 'Metro Photograph - Demo Version Regular';
+    color: white;
+    border-radius: 32px;
+    box-shadow: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease background-color 0.2s ease;
+    overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateY(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0
+}
+
+.voltar:hover {
+    transform: scale(1.5);
+    background-color: rgba(184, 92, 18, 0.8);
+}
+
+.Validation, .BS, .lnt {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; /* Alinha pelo topo para a descrição expandir para baixo */
+    justify-content: flex-start;
+    gap: 30px; 
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Agrupa o botão do título e a descrição em uma coluna */
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.card-conteudo.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+p {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    color: #ffffff;
+}
+
+.abre-validation {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 20px 30px;
+    position: relative;
+    cursor: pointer;
+    background-color: #0f6376;
+    border-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+    box-sizing: border-box;
+    background-color: rgba(15, 99, 118, 0.8);}
+
+.dlx {
+    font-family: 'Matequn Historya';
+    font-size: 52px;
+    color: #000000;
+    position: absolute;
+    top: 45%;
+    left: 105%;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    white-space: nowrap;
+}
+
+.dlx sub {
+    font-size: inherit;
+    vertical-align: baseline;
+}
+
+.text-validation {
+    font-size: 8rem;
+    font-family: 'Creattion Demo';
+    color: #000;
+    margin: 0;  
+    display: inline-block;
+    position: relative; 
+}
+
+.ali {
+    font-size: 8rem;
+    text-align: center;
+    font-family: 'Taken by Vultures', 'Taken by Vultures Alternates';
+    margin: 0;
+}
+
+.text-bs {
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Taken by Vultures', 'Taken by Vultures Alternates';
+    margin: 0;
+}
+
+.text-lnt {
+    font-size: 4rem;
+    color: #E1E8E6;
+    font-family: 'Metro Photograph - Demo Version Regular', cursive, sans-serif;
+}
+
+.card-image-validation, .card-image-bs, .card-image-lnt {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateX(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0;
+
+}
+
+.card-image-bs:hover, .card-image-lnt:hover, .card-image-validation:hover{
+    transform: scale(1.5);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.abre-bs {
+    cursor: pointer;
+    background-color: #953501;
+    border-color: white;
+    border-radius: 20px;
+    height: 210px;
+    width: 100%;
+    background-color: rgba(149, 53, 1, 0.8);
+}
+
+.lista-musica-vld {
+    cursor: pointer;
+    margin: 10px;
+    background-color: darkblue;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 350%;
+    text-align: center;
+    font-family: 'Creattion Demo';
+    color: white;
+    border-radius: 32px;
+    display: inline;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 160px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.lista-musica-bs {
+    cursor: pointer;
+    margin: 10px;
+    background-color: #953520;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 350%;
+    text-align: center;
+    font-family: 'Taken by Vultures';
+    color: white;
+    border-radius: 32px;
+    display: inline;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 160px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.lista-musica-lnt {
+    cursor: pointer;
+    margin: 10px;
+    background-color: #3B494C;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 350%;
+    text-align: center;
+    font-family: 'Metro Photograph - Demo Version Regular';
+    color: white;
+    border-radius: 32px;
+    display: inline;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 160px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.lista-musica-vld:hover{
+    background-color: rgba(0, 0, 139, 0.5);
+}
+
+.lista-musica-bs:hover{
+    background-color: rgba(149, 53, 1, 0.5);
+}
+
+.lista-musica-lnt:hover{
+    background-color: rgba(59, 73, 76, 0.5);
+}
+
+.abre-lnt {
+    cursor: pointer;
+    background-color: #3B494C;
+    border-color: rgb(32, 7, 7);
+    border-radius: 20px;
+    width: 100%;
+    height: 210px;
+    background-color: rgba(59, 73, 76, 0.8);
+}
+
+.abre-validation:hover{
+    background-color: rgba(15, 99, 118, 0.9);
+}
+
+.abre-bs:hover{
+    background-color: rgba(149, 53, 1, 0.9);
+}
+
+.abre-lnt:hover{
+    background-color: rgba(59, 73, 76, 0.9);
+}
+
+.painel-descricao {
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 0;
+    text-align: center;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease, padding 0.4s ease;
+}
+
+.painel-descricao.aberto {
+    max-height: 400rem;
+    opacity: 1;
+    padding: 20px;
+    transform: translateY(0);
+}
+
+.painel-descricao h2 {
+    margin-top: 0;
+    font-size: 100px;
+    text-decoration: none;
+}
+
+.painel-descricao p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 55px;
+}
+
+.painel-validation {
+    background-color: #0f6376;
+    border: 2px solid #000;
+    color: #000000;
+        background-color: rgba(15, 99, 118, 0.8);
+
+.descricao{
+    color:black;
+    font-size: 5.5rem
+}
+}
+
+.painel-bs{
+    background-color: #953501;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: rgba(149, 53, 1, 0.8);
+.dsc-bs{
+    color: #ffffff;
+    font-size: 5.5rem;
+}
+}
+
+.painel-lnt{
+    background-color: #1e2527;
+    border: 2px solid #E1E8E6;
+    color: #E1E8E6;
+    background-color: rgba(59, 73, 76, 0.8);
+.dsc-lnt{
+    color: #E1E8E6;
+    font-size: 5.5rem;
+
+}
+}
+
+.lnt-link{
+    display: inline-block; /* Necessário para aceitar largura e altura */
+    background-color:#3B494C;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Metro Photograph - Demo Version Regular';
+    color: white;
+    border-radius: 32px;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.lnt-link:hover {
+    background-color: rgba(59, 73, 76, 0.5);
+}
+
+.lnt-bs{
+    display: inline-block; /* Necessário para aceitar largura e altura */
+    background-color: #953520;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Taken by Vultures';
+    color: white;
+    border-radius: 32px;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.lnt-bs:hover {
+    background-color: rgba(149, 53, 1, 0.5);
+}
+
+.lnt-vld{
+    display: inline-block; /* Necessário para aceitar largura e altura */
+    background-color: darkblue;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    line-height: 100px; /* Alinha o texto verticalmente no centro */
+    font-size: 300%;
+    text-align: center;
+    font-family: 'Creattion Demo';
+    color: white;
+    border-radius: 32px;
+    text-decoration: none; /* Remove o sublinhado azul padrão */
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.lnt-vld:hover {
+    background-color: rgba(0, 0, 139, 0.5);
+}
+
+@keyframes smooth { 
+  from{
+    opacity: 0;
+  }
+  to{ 
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+

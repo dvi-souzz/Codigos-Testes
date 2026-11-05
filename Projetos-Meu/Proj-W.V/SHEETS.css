@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+.nucine{
+    padding:20px;
+    color: #ffff;
+    text-align: flex-start;
+    justify-content: flex-start;
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.inicio{
+    color: #ffff;
+    font-size: 200px;
+}

@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Hatolie';
+    src: url('../font/Hatolie.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 50px 0;
+    background-color: #060008ec;
+    font-family: 'Hatolie', sans-serif;
+}
+
+.voltar {
+    background-color: gray;
+    width: 200px;
+    height: 100px;
+    font-size: 300%;
+    text-align: center;
+    text-transform: initial;
+    font-family: 'Hatolie';
+    color: white;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px #ffffff;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.voltar:hover {
+    transform: scale(1.1);
+}
+
+/* ESTRUTURA DOS CARDS */
+[class^="spg"] {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px; 
+    width: 100%;
+    max-width: 900px;
+}
+
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 1000px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.card-conteudo.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+p {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* ESTILIZAÇÃO PADRÃO PARA IMAGENS E BOTÕES */
+[class^="card-image-"] {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+[class^="card-image-"]:hover { 
+    transform: scale(1.1); 
+}
+
+[class^="abre-"] {
+    cursor: pointer;
+    background-color: #120320;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    width: 100%;
+    min-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+[class^="text-"] {
+    font-size: 3.5rem;
+    font-family: 'Hatolie', sans-serif;
+    color: #ffffff;
+}
+
+/* PAINEL COMPARTILHADO DE DESCRIÇÃO */
+.painel-descricao {
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    background-color: #1a082e;
+    border: 2px solid #a855f7;
+    color: #ffffff;
+    font-family: 'Hatolie', sans-serif;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease, padding 0.4s ease;
+}
+
+.painel-descricao.aberto {
+    max-height: 400rem;
+    opacity: 1;
+    padding: 20px;
+    transform: translateY(0);
+}
+
+.painel-descricao h2 {
+    margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+    color: #d8b4fe;
+}
+
+.painel-descricao p {
+    font-size: 2rem;
+    text-align: left;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+/* BOTÃO DO LINK / ÁLBUM */
+[class^="link-"] {
+    display: inline-block;
+    background-color: #6b21a8;
+    margin-top: 15px;
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'Hatolie', sans-serif;
+    color: white;
+    border-radius: 32px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+[class^="link-"]:hover {
+    transform: scale(1.1);
+    background-color: #9333ea;
+}
+
+/* COR DIFERENCIADA PARA O JOGO DA STEAM */
+.abre-jogo { border-color: #66c0f4; }
+.painel-jogo { border-color: #66c0f4; }
+.link-jogo { background-color: #171a21; border: 1px solid #66c0f4; }
+.link-jogo:hover { background-color: #2a475e; }

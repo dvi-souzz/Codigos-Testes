@@ -1,0 +1,91 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color:#b4ebb633;
+    font-family: 'Greenscr', 'Hatolie', 'MetroPhotograph-DemoVersion-Regular';
+}
+
+.card{
+    width:450px;
+    margin:20px;
+}
+
+.card-head{
+    width: 100%;
+}
+
+.card-head img{
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    margin-bottom:20px;
+    border-radius: 20px;
+}
+
+.card-body{
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+}
+
+.card-body h1{
+    font-family: 'Banger', cursive;
+    font-size: 56px;
+    font-weight: normal;
+}
+
+.info-box-13lduff{
+    color:#354D00;
+    background-color:#81B214;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: 'MetroPhotograph-DemoVersion-Regular';
+    border: 2px solid #ff0000;
+}
+.info-box-bonda{
+    color:#354D00;
+    background-color:#81B214;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: 'Hatolie';
+    border: 2px solid #ff0000;
+}
+.info-box-spg{
+    color:#354D00;
+    background-color:#81B214;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: 'Greenscr';
+    border: 2px solid #ff0000;
+}
+
+
+/* --- CARD 1 (13lduff / Validation) --- */
+.card:card card-13lduff h1 {
+    font-family: 'MetroPhotograph-DemoVersion-Regular';
+}
+.info-box-13lduff {
+    font-family: 'MetroPhotograph-DemoVersion-Regular';
+}
+
+/* --- CARD 2 (BONDA) --- */
+.card:card card-bonda h1 {
+    font-family: 'Hatolie';
+}
+.info-box-bonda {
+    font-family: 'Hatolie';
+}
+
+/* --- CARD 3 (SPG) --- */
+.card:card card-spg h1 {
+    font-family: 'Greenscr';
+}
+.info-box-spg {
+    font-family: 'Greenscr
+}

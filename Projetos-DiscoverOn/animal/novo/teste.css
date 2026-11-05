@@ -1,0 +1,317 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+
+    background: none;
+    background-color: #0d1a12;
+
+    font-family: 'Greenscr', 'Hatolie', 'MetroPhotograph-DemoVersion-Regular', sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.85),
+            rgba(170, 29, 29, 0.4),
+            rgba(180, 0, 255, 0.9)
+        ),
+        url(./Subpastas/imagem/bgo.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+
+    z-index: -1;
+
+    opacity: 0;
+    transform: scale(1.05);
+
+    animation: aparecerFundo 2s ease-in-out forwards;
+}
+
+.card {
+    width: 450px;
+    margin: 20px;
+        transition: transform 0.2s ease;
+    overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateY(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0
+
+}
+
+/* Configuração base para o container deslizante */
+[class*="card-body"] {
+    max-height: 1200px;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    background-color: rgba(0, 0, 0, 0.8);
+   
+    transition:
+        max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease-in-out,
+        padding 0.4s ease-in-out,
+        visibility 0.4s;
+}
+
+/* Estado Fechado: Esconde todo o conteúdo sem deixar nada "vazar" */
+[class*="card-body"].hidden {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border: none !important;
+    pointer-events: none;
+}
+
+/* Indicador de clique na capa */
+.card-image {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-image:hover{
+    transform: scale(1.5);
+}
+
+.autor{
+    text-align: center;
+    font-size: 30px;
+    transition: transform 0.2s ease;
+}
+
+.autor:hover {
+    transform: scale(1.3);
+}
+
+.card-head {
+    width: 100%;
+}
+
+p{
+    font-size: 2rem;
+    text-align: justify;
+    max-width: max-content;
+    max-height: max-content;
+}
+
+.card-head img {
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+    margin-bottom: 20px;
+    border-radius: 20px;
+        transition: transform 0.2s ease;
+    overflow: hidden;
+
+  animation: smooth 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s forwards; /* ANIMAÇÃO DE ENTRADA */
+  transform: translateY(-200px); /* POSIÇÃO PARA VIR DA ESQUERDA */
+  opacity: 0
+}
+
+.card-head:hover img {
+    transform: scale(1.5);
+}
+
+
+.card-body-validation h1 {
+    font-size: 56px;
+    font-weight: normal;
+}
+
+.card-body-bonda h1 {
+    font-size: 56px;
+    font-weight: normal;
+}
+
+.card-body-spg h1 {
+    font-size: 56px;
+    font-weight: normal;
+}
+
+/* --- CARD 1 (Trilogia Validation) --- */
+.card-validation h1 {
+    font-family: 'Metro Photograph - Demo Version Regular', cursive, sans-serif;
+    text-align: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.card-validation h1:hover {
+    transform: scale(1.5);
+}
+
+.info-box-13lduff {
+    color: #ffffff; /* Cor alterada para branco para dar contraste na fonte */
+    background-color: #81B214;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: 'Metro Photograph - Demo Version Regular', cursive, sans-serif;
+    border: 2px solid #0F4E96;
+}
+
+/* Corrigido o tamanho e leitura do texto especificamente da caixa do Validation */
+
+.info-box-13lduff p {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+/* --- CARD 2 (BONDA) --- */
+
+.card-bonda h1 {
+    font-family: 'Hatolie', cursive, sans-serif;
+    font-size: 64px;
+    text-align: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+   
+    color: #f12f2f;
+    -webkit-text-stroke: 1.5px #aa1d1d;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.card-bonda h1:hover {
+    transform: scale(2.4);
+}
+
+.info-box-bonda {
+    color: #354D00;
+    background-color: #81B214;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Hatolie', cursive, sans-serif;
+    border: 2px solid #fff;
+}
+
+/* --- CARD 3 (SPG) --- */
+
+.card-spg h1 {
+    font-family: 'Green Screen', sans-serif;
+    text-align: center;
+    justify-content: center;
+    color:#ffffff;
+    transition: transform 0.2s ease;
+}
+
+.card-spg h1:hover {
+    transform: scale(2.2);
+}
+
+.info-box-spg {
+    color: #ffffff;
+    background-color: #a8b391;
+    padding: 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-family: 'Green Screen', sans-serif;
+    border: 2px solid #bb9f73;
+}
+
+.vermaisspg {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #9029ff;
+    color: #b3d57f;
+    text-transform: uppercase;
+    border: 2px solid #bb9f73;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    font-family: 'Green Screen', sans-serif;
+}
+
+.vermaisvalidation{
+    display: block;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #b4bab4;
+    color: #ffffff;
+    border: 2px solid #0F4E96;
+    transition: transform 0.2s ease;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Metro Photograph - Demo Version Regular', cursive, sans-serif;
+}
+
+.vermaisbonda {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #710e19;
+    color: #f12f2f;
+    border: 2px solid #0F4E96;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Hatolie', cursive, sans-serif;
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+}
+
+.vermaisbonda:hover{
+    background-color: #EC243C;
+    transform: scale(1.1);
+}
+
+.vermaisvalidation:hover{
+    background-color: #b4bab4;
+    transform: scale(1.1);
+}
+
+.vermaisspg:hover{
+    background-color: #9029ff;
+    transform: scale(1.1);
+}
+
+@keyframes smooth {
+  from{
+    opacity: 0
+  }
+  
+  to{
+
+    transform: translateX(0);
+    opacity: 1;
+
+    }
+}
+
+@keyframes aparecerFundo {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

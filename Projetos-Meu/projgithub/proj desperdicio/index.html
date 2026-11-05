@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="title">
+            <h2 class="titulo"> Coloque o Item, a Data de Compra e Quantidade. <br> Calcularemos a Validade</h2>
+        </div>
+        <form class="input" id="formValidade">
+            <div class="input-box">
+                <input id="item" placeholder="Item" type="search">
+                <input id="data" placeholder="Data" type="date">
+                <input id="quantidade" placeholder="Quantidade" type="number" min="1" required>
+                <button type="submit" class="consult">Consultar</button>
+        </form>
+        <div class="Resultado">
+            <h3>Vencimento Previsto Para: </h3>
+            <p id="resultado">Preencha os campos para consultar.</p>
+            <div id="produtosEncontrados"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

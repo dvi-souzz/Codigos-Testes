@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Série BONDA - Yung Lixo</title>
+    <link rel="stylesheet" href="CSS/css-bonda.css">
+</head>
+<body>
+    <button class="voltar" onclick="location.href='../teste.html'">Voltar</button>
+
+    <!-- BONDA 1 -->
+    <div class="bonda1">
+        <img src="imagem/bonda1.avif" alt="BONDA 1" class="card-image-b1" onclick="toggleConteudo('b1')">
+
+        <div class="card-conteudo" id="conteudo-b1">
+            <button class="abre-b1" onclick="toggleDescricao('desc-b1')">
+                <p class="text-b1">BONDA 1</p>
+            </button>
+            
+            <div class="painel-descricao painel-b1" id="desc-b1">
+                <h2>BONDA 1</h2>
+                <p class="dsc-b1">O ponto de partida de uma das sagas mais emblemáticas da cena underground. Com um tom descontraído e marcado pelo humor ácido, o álbum introduz a estética irreverente de Yung Lixo, combinando shitpost musical, sátira social e samples variados.
+Estilo e Sonoridade: Trap, hip-hop lo-fi e produções experimentais focadas em ritmos dinâmicos.
+Temática: Memes, cultura da internet, piadas internas e histórias exageradas interpretadas com fluxo rápido e afiado.</p>
+                <a href="https://youtu.be/KSzld8dILeI" class="link-b1" target="_blank">Álbum</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BONDA 2 -->
+    <div class="bonda2">
+        <img src="imagem/bonda2.avif" alt="BONDA 2" class="card-image-b2" onclick="toggleConteudo('b2')">
+        
+        <div class="card-conteudo" id="conteudo-b2">
+            <button class="abre-b2" onclick="toggleDescricao('desc-b2')">
+                <p class="text-b2">BONDA 2</p>
+            </button>
+
+            <div class="painel-descricao painel-b2" id="desc-b2">
+                <h2>BONDA 2</h2>
+                <p class="dsc-b2">Expandindo a fórmula do primeiro projeto, BONDA 2 eleva a produção técnica e amplia o universo de referências. O humor continua afiado, porém acompanhado de métricas mais trabalhadas e refrões marcantes.
+Estilo e Sonoridade: Trap agressivo, boombap e elementos de synthpop underground.
+Temática: Crítica à cultura pop, ironia sobre a fama na internet e narrativas cômicas que beiram o absurdo.</p>
+                <a href="https://youtu.be/fLELt1TueHw" class="link-b2" target="_blank">Álbum</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BONDA 3 -->
+    <div class="bonda3">
+        <img src="imagem/bonda3.webp" alt="BONDA 3" class="card-image-b3" onclick="toggleConteudo('b3')">
+            
+        <div class="card-conteudo" id="conteudo-b3">
+            <button class="abre-b3" onclick="toggleDescricao('desc-b3')">
+                <p class="text-b3">BONDA 3</p>
+            </button>
+
+            <div class="painel-descricao painel-b3" id="desc-b3">
+                <h2>BONDA 3</h2>
+                <p class="dsc-b3">Considerado por muitos um divisor de águas na franquia, BONDA 3 amadurece a estética cômica, inserindo momentos de reflexão pessoal em meio às rimas cômicas clássicas do artista.
+Estilo e Sonoridade: Mistura refinada de emo trap, lofi e beats pesados com arranjos mais complexos.
+Temática: Dualidade entre o personagem Yung Lixo e a vida real, dilemas do amadurecimento e sátiras ao cenário musical atual.</p>
+                <a href="https://youtu.be/yhtLGnExKYk" class="link-b3" target="_blank">Álbum</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BONDA GOOD 4SS JOB -->
+    <div class="bonda4">
+        <img src="imagem/bonda4.webp" alt="BONDA GOOD 4SS JOB" class="card-image-b4" onclick="toggleConteudo('b4')">
+            
+        <div class="card-conteudo" id="conteudo-b4">
+            <button class="abre-b4" onclick="toggleDescricao('desc-b4')">
+                <p class="text-b4">BONDA <br class="br-b4"> GOOD 4SS JOB</p>
+            </button>
+
+            <div class="painel-descricao painel-b4" id="desc-b4">
+                <h2>BONDA GOOD 4SS JOB</h2>
+                <p class="dsc-b4">Uma celebração grandiosa de todo a trajetória da franquia BONDA. Com produção refinada e participação de diversos colaboradores da cena, o álbum entrega uma experiência completa do universo criativo de Yung Lixo.
+Estilo e Sonoridade: Hip-hop conceitual, trap maximalista, samples marcantes e transições bem trabalhadas.
+Temática: Conclusão de ciclos, exaltação à caminhada independente, humor absurdo e homenagens aos fãs da saga.</p>
+                <a href="https://youtu.be/-pVuBXWS4qk" class="link-b4" target="_blank">Álbum</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleConteudo(id) {
+            const elementoAlvo = document.getElementById('conteudo-' + id);
+            const estaAtivo = elementoAlvo.classList.contains('ativo');
+
+            document.querySelectorAll('.card-conteudo').forEach(el => el.classList.remove('ativo'));
+            document.querySelectorAll('.painel-descricao').forEach(el => el.classList.remove('aberto'));
+
+            if (!estaAtivo) {
+                elementoAlvo.classList.add('ativo');
+            }
+        }
+
+        function toggleDescricao(id) {
+            const painelAlvo = document.getElementById(id);
+            const estaAberto = painelAlvo.classList.contains('aberto');
+
+            document.querySelectorAll('.painel-descricao').forEach(el => el.classList.remove('aberto'));
+
+            if (!estaAberto) {
+                painelAlvo.classList.add('aberto');
+            }
+        }
+    </script>
+</body>
+</html>

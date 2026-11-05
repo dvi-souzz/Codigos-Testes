@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilogia Validation</title>
+    <link rel="stylesheet" href="CSS/css-validation.css">
+</head>
+<body>
+    <button class="voltar" onclick="location.href='../teste.html'">Voltar</button>
+
+    <div class="Validation">
+        <img src="imagem/validation.webp" alt="Trilogia Validation" class="card-image-validation" onclick="toggleConteudo('val')">
+
+        <div class="card-conteudo" id="conteudo-val">
+            <button class="abre-validation" onclick="toggleDescricao('desc-val')">
+                <p class="text-validation">V <a class="ali"> alidation </a><a class="dlx"><sub>deluxe edition</sub></a></p>
+            </button>
+            
+            <div class="painel-descricao painel-validation" id="desc-val">
+                <h2>Validation</h2>
+                <p class="descricao">Lançado como uma versão expandida de um de seus projetos mais marcantes, o álbum explora o desejo por validação externa, dilemas de autoverificação e as incertezas da vida jovem e digital.
+Estilo e Sonoridade: Mistura de lo-fi, emo trap, pop alternativo e hip-hop.
+Temática: Letras introspectivas que mesclam vulnerabilidade emocional com tiradas bem-humoradas e sarcásticas. A versão Deluxe traz faixas adicionais e participações que aprofundam as nuances de solidão e busca por pertencimento.</p>
+                <a href="https://youtu.be/18WfEI9ogcQ"class="lnt-vld" target="_blank">Album</a> <a href="./ListaMusicas/index.html" class="lista-musica-vld"> Musicas </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="BS">
+        <img src="imagem/BS.webp" alt="BitterSweet Memories" class="card-image-bs" onclick="toggleConteudo('bs')">
+        
+        <div class="card-conteudo" id="conteudo-bs">
+            <button class="abre-bs" onclick="toggleDescricao('desc-bs')">
+                <p class="text-bs"> BitterSweet Memories </p>
+            </button>
+            <div class="painel-descricao painel-bs" id="desc-bs">
+                <h2>BitterSweet Memories</h2>
+                <p class="dsc-bs">Este projeto reflete um clima mais melancólico e nostálgico, focando nas dores e no aprendizado que vêm com o fim de ciclos e relacionamentos.
+Estilo e Sonoridade: Melodias suaves, beats cadenciados e vocais expressivos com forte influência de indie pop e emo rap.
+Temática: Saudade, memórias agridoces ("bittersweet") e a aceitação de que nem todas as lembranças do passado precisam ser totalmente dolorosas, servindo também como aprendizado.</p>
+                <a href="https://youtu.be/x_kWooRazEA"class="lnt-bs" target="_blank">Album</a> <a href="./ListaMusicas/index-bs.html" class="lista-musica-bs"> Musicas </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="lnt">
+        <img src="imagem/lnt.webp" alt="13 Lentes De Um Final Feliz" class="card-image-lnt" onclick="toggleConteudo('lnt')">
+            
+        <div class="card-conteudo" id="conteudo-lnt">
+            <button class="abre-lnt" onclick="toggleDescricao('desc-lnt')">
+                <p class="text-lnt"> 13 Lentes De Um <br class="text-lnte" > Final Feliz </p>
+            </button>
+
+            <div class="painel-descricao painel-lnt" id="desc-lnt">
+                <h2 class="titulo-painel">13 Lentes De Um Final Feliz</h2>
+                <p class="dsc-lnt">Estruturado quase como um conceito narrativo, o álbum utiliza a metáfora das "13 lentes" para observar e analisar um mesmo evento ou fase sob múltiplos pontos de vista.
+Estilo e Sonoridade: Produção rica e diversificada, alternando entre momentos acústicos, arranjos eletrônicos e ritmos urbanos.
+Temática: Desilusão amorosa, amadurecimento e a busca por encerramento (o "final feliz"). Cada faixa funciona como um ângulo diferente para entender a complexidade de um encerramento e a reconciliação com a própria história.</p>
+                <a href="https://youtu.be/YhGBnUmP25Q"class="lnt-link" target="_blank">Álbum</a> <a href="./ListaMusicas/index-lnt.html" class="lista-musica-lnt"> Musicas </a>
+            </div>
+        </div>
+    </div>
+
+   <script>
+        function toggleConteudo(id) {
+            const elementoAlvo = document.getElementById('conteudo-' + id);
+            const estaAtivo = elementoAlvo.classList.contains('ativo');
+
+            document.querySelectorAll('.card-conteudo').forEach(el => el.classList.remove('ativo'));
+            document.querySelectorAll('.painel-descricao').forEach(el => el.classList.remove('aberto'));
+
+            if (!estaAtivo) {
+                elementoAlvo.classList.add('ativo');
+            }
+        }
+
+        function toggleDescricao(id) {
+            const painelAlvo = document.getElementById(id);
+            const estaAberto = painelAlvo.classList.contains('aberto');
+
+            document.querySelectorAll('.painel-descricao').forEach(el => el.classList.remove('aberto'));
+
+            if (!estaAberto) {
+                painelAlvo.classList.add('aberto');
+            }
+        }
+    </script>
+
+
+</body>
+</html>

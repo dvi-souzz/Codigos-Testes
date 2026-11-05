@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Lanches</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <section>
+            <a href="#" class="logo">
+                <img src="./img/profile.jpg" alt="logo" width="95">
+            </a>
+
+            <nav class="navbar">
+                <a href="#">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#menu">Menu</a>
+                <a href="#review">Avaliações</a>
+                <a href="#address">Endereço</a>
+            </nav>
+
+            <div class="icons">
+                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/search--v1.png"
+                    alt="search--v1" />
+
+                <button id="cart-toggle" class="cart-button" aria-label="Abrir carrinho">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png"
+                        alt="shopping-cart--v1" />
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </section>
+    </header>
+
+    <div class="home-container">
+        <section id="home">
+            <div class="content">
+                <h3>Bateu a fome? Vem de Garagem!</h3>
+                <p>Aqui, cada lanche é preparado com carinho, ingredientes de qualidade e muito sabor. Nosso objetivo é
+                    oferecer uma experiência deliciosa, com opções para todos os gostos e aquele atendimento que faz
+                    você querer voltar. Peça o seu favorito e descubra o sabor que conquista a cada mordida!</p>
+                <a href="#menu" class="bnt">Peça Agora</a>
+            </div>
+        </section>
+    </div>
+
+    <section class="about" id="about">
+        <h2 class="title">Sobre <span>Nós</span></h2>
+        <div class="row">
+            <div class="container-img">
+                <img src="./img/laanc.png" alt="sobre nos" width="600px">
+            </div>
+            <div class="content">
+                <h3>Muito mais que um lanche, uma experiência de sabor!</h3>
+                <p>A Garagem Lanches nasceu para quem valoriza um lanche saboroso, bem preparado e recheado de
+                    qualidade. Localizada em Mogi das Cruzes, nossa lanchonete conquista os clientes com porções
+                    generosas, hambúrgueres artesanais, molhos especiais e combinações que tornam cada pedido uma
+                    experiência deliciosa.</p>
+                <p>Nosso compromisso é oferecer lanches preparados com cuidado, sabor marcante e um atendimento
+                    atencioso, para que cada cliente se sinta bem-vindo e tenha vontade de voltar. Seja para matar a
+                    fome no fim do dia ou aproveitar um momento especial com quem você gosta, queremos fazer parte
+                    desses momentos.</p>
+                <p>Mais do que servir lanches, buscamos conquistar sua confiança a cada pedido, unindo qualidade, sabor
+                    e dedicação em cada detalhe.</p>
+                <a href="#" class="bnt">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2 class="title">Nosso <span> Menu</span></h2>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="img/laanc.png" width="350" alt="item 1">
+                <h3>X-Salada Bacon</h3>
+                <div class="price">R$ 33,50 <span>R$ 39,99 </span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+            <div class="box">
+                <img src="img/laanc.png" alt="item 2" width="350">
+                <h3>Hot Dog Grande</h3>
+                <div class="price">R$ 21,50 <span>R$ 25,99 </span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+            <div class="box">
+                <img src="img/laanc.png" alt="item 3" width="350">
+                <h3> Combo X-Frango Salada</h3>
+                <div class="price">R$ 45,00 <span>R$ 50,00 </span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+            <div class="box">
+                <img src="img/laanc.png" alt="item 4" width="350">
+                <h3>Fritas Média</h3>
+                <div class="price">R$ 15,99 <span>R$20,99</span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+            <div class="box">
+                <img src="img/laanc.png" alt="item 5" width="350">
+                <h3>Combo X-Bacon</h3>
+                <div class="price">R$ 15,99 <span>R$20,99</span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+            <div class="box">
+                <img src="img/laanc.png" alt="item 6" width="350">
+                <h3>X-Tudo Egg</h3>
+                <div class="price">R$ 15,99 <span>R$20,99</span></div>
+                <a href="#" class="bnt"> Adicione ao Carrinho</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="review" id="review">
+        <h2 class="title">Nossos <span>Clientes</span></h2>
+
+        <div class="box-container">
+            <div class="box">
+                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/d3ad7f/quote-right.png"
+                    alt="quote-right" />
+                <p>Um lanche delicioso, preparado com muito capricho! Ótima opção para quem quer matar a fome e
+                    aproveitar um lanche de qualidade.</p>
+                <img width="90" height="90" src="./img/pic-1.png" class="user" />
+                <h3>Pedro Antonio</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                </div>
+            </div>
+            <div class="box">
+                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/d3ad7f/quote-right.png"
+                    alt="quote-right" />
+                <p>Ótima experiência! Lanches saborosos, ingredientes que fazem a diferença e um atendimento que deixa
+                    vontade de voltar.</p>
+                <img width="90" height="90" src="https://img.icons8.com/ios-glyphs/90/ffffff/user--v1.png"
+                    alt="user--v1" class="user" />
+                <h3>Julio Castro</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/star-half-empty.png"
+                        alt="star-half-empty" />
+                </div>
+            </div>
+            <div class="box">
+                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/d3ad7f/quote-right.png"
+                    alt="quote-right" />
+                <p>Se você procura um lanche bem preparado e cheio de sabor, vale a pena conhecer! Uma ótima opção para
+                    pedir e aproveitar.</p>
+                <img width="90" height="90" src="./img/pic-3.png" class="user" />
+                <h3>Rodrigo Edvaldo</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png"
+                        alt="star--v1" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="address" id="address">
+        <h2 class="title"> Nosso <span>Endereço</span></h2>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117059.23277629516!2d-46.36461439293564!3d-23.528868611720267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce77922ddd4e07%3A0x447866d2896b37a5!2sgaragem%20lanches!5e0!3m2!1spt-BR!2sbr!4v1792773894174!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </section>
+
+    <section class="footer">
+        <div class="share">
+            <a href="https://www.instagram.com/garagem_lanchesofc?rpxt=ZDNlZDc0MzIxNw==" target="_blank">
+                <img width="48" height="48" src="https://img.icons8.com/ios/48/ffffff/instagram-new--v1.png"
+                    alt="instagram-new--v1" />
+            </a>
+            <a href="https://www.facebook.com/share/1AA5K1HiVu/" target="_blank">
+                <img width="48" height="48" src="https://img.icons8.com/ios/48/ffffff/facebook-new.png"
+                    alt="facebook-new" />
+            </a>
+            <a href="https://wa.me/5511996720002?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank">
+                <img width="48" height="48" src="https://img.icons8.com/ios/48/ffffff/whatsapp--v1.png"
+                    alt="whatsapp--v1" />
+            </a>
+        </div>
+    </section>
+
+    <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button id="cart-close" aria-label="Fechar carrinho">
+                &times;
+            </button>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-footer">
+            <p>Total: <strong id="cart-total">R$ 0,00</strong></p>
+            <button id="checkout-button" class="bnt">
+                Finalizar pelo WhatsApp
+            </button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
