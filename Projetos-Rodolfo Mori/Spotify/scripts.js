@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ---------- BUSCA NO YOUTUBE ----------
 
-const API_KEY = "AIzaSyCewQ6RVyEEabP2t_Hw-4JMX8s_LxhrzTA";
+const API_KEY = "AIzaSyB0bfLI6Zq0daMjz0ZfbfmMNLUIJc1vsBQ";
 
 async function buscar(termo) {
     const urlBusca = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoEmbeddable=true&videoSyndicated=true&videoCategoryId=10&regionCode=BR&maxResults=25&q=${encodeURIComponent(termo)}&key=${API_KEY}`;
@@ -88,13 +88,17 @@ async function buscar(termo) {
             .map(v => v.id)
     );
 
+    const ehTopic = item => Number(item.snippet.channelTitle.endsWith('- Topic'));
+
     return dadosBusca.items
         .filter(item => tocaveis.has(item.id.videoId))
+        // canais "- Topic" costumam ser os mais liberados para incorporação
+        .sort((a, b) => ehTopic(b) - ehTopic(a))
         .slice(0, 12)
         .map(item => ({
             id: item.id.videoId,
-            titulo: item.snippet.title,
-            canal: item.snippet.channelTitle,
+            titulo: decodificar(item.snippet.title),
+            canal: decodificar(item.snippet.channelTitle).replace(' - Topic', ''),
             miniatura: item.snippet.thumbnails.medium.url,
         }));
 }
@@ -108,19 +112,40 @@ campoBusca.addEventListener('keydown', async (e) => {
     const termo = campoBusca.value.trim();
     if (!termo) return;
 
-    const videos = await buscar(termo);
+    resultados.innerHTML = '<p style="color:#b3b3b3">Buscando...</p>';
+
+    let videos = [];
+    try {
+        videos = await buscar(termo);
+    } catch (erro) {
+        console.error('Falha na busca:', erro);
+        resultados.innerHTML = '<p style="color:#b3b3b3">Erro ao buscar. Tente novamente.</p>';
+        return;
+    }
 
     resultados.innerHTML = '';
+
+    if (videos.length === 0) {
+        resultados.innerHTML = '<p style="color:#b3b3b3">Nenhum resultado encontrado.</p>';
+        return;
+    }
+
     videos.forEach(video => {
         const card = document.createElement('div');
         card.classList.add('album-card');
-        card.innerHTML = `
-            <img src="${video.miniatura}" alt="${video.titulo}">
-            <div>
-                <h3>${video.titulo}</h3>
-                <p>${video.canal}</p>
-            </div>
-        `;
+
+        const img = document.createElement('img');
+        img.src = video.miniatura;
+        img.alt = video.titulo;
+
+        const info = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.textContent = video.titulo;
+        const p = document.createElement('p');
+        p.textContent = video.canal;
+        info.append(h3, p);
+
+        card.append(img, info);
         card.addEventListener('click', () => tocarVideo(video, videos));
         resultados.appendChild(card);
     });
@@ -133,12 +158,17 @@ let intervalo = null;
 let arrastando = false;
 let fila = [];
 let indiceAtual = -1;
+let falhasSeguidas = 0;
+let pendente = null; // música clicada antes do player ficar pronto
 
 const btnPlay = document.getElementById('btn-play');
 const barraProgresso = document.getElementById('barra-progresso');
 const barraVolume = document.getElementById('barra-volume');
 const tempoAtual = document.getElementById('tempo-atual');
 const tempoTotal = document.getElementById('tempo-total');
+const elThumb = document.getElementById('player-thumb');
+const elTitulo = document.getElementById('player-titulo');
+const elArtista = document.getElementById('player-artista');
 
 function decodificar(texto) {
     const el = document.createElement('textarea');
@@ -153,19 +183,22 @@ function formatarTempo(segundos) {
 
 function tocarVideo(video, lista) {
     if (!playerPronto) {
-        console.warn('Player ainda não está pronto');
+        // guarda o clique e toca assim que o player ficar pronto
+        pendente = { video, lista };
         return;
     }
 
-    if (lista) fila = lista;
+    if (lista) {
+        fila = lista;
+        falhasSeguidas = 0; // clique novo do usuário: recomeça a contagem
+    }
     indiceAtual = fila.findIndex(v => v.id === video.id);
 
     player.loadVideoById(video.id);
 
-    document.getElementById('player-thumb').src = video.miniatura;
-    document.getElementById('player-titulo').textContent = decodificar(video.titulo);
-    document.getElementById('player-artista').textContent =
-        decodificar(video.canal).replace(' - Topic', '');
+    elThumb.src = video.miniatura;
+    elTitulo.textContent = video.titulo;
+    elArtista.textContent = video.canal;
 }
 
 function tocarIndice(i) {
@@ -173,11 +206,15 @@ function tocarIndice(i) {
 }
 
 function aoMudarEstado(evento) {
-    if (evento.data === YT.PlayerState.ENDED) tocarIndice(indiceAtual + 1);
+    if (evento.data === YT.PlayerState.ENDED) {
+        tocarIndice(indiceAtual + 1);
+        return;
+    }
 
     const icone = btnPlay.querySelector('i');
 
     if (evento.data === YT.PlayerState.PLAYING) {
+        falhasSeguidas = 0;
         icone.className = 'fa-solid fa-pause';
         const duracao = player.getDuration();
         barraProgresso.max = duracao;
@@ -222,11 +259,45 @@ barraProgresso.addEventListener('change', () => {
     if (playerPronto) player.seekTo(Number(barraProgresso.value), true);
     arrastando = false;
 });
+// garante que soltar o mouse fora da barra não deixe "arrastando" travado
+document.addEventListener('pointerup', () => { arrastando = false; });
 
 // Volume
 barraVolume.addEventListener('input', () => {
     if (playerPronto) player.setVolume(Number(barraVolume.value));
 });
+
+// ---------- TRATAMENTO DE ERROS DO PLAYER ----------
+function aoDarErro(e) {
+    console.error('Erro do player YouTube:', e.data);
+
+    // 100, 101 e 150 = problema só nesse vídeo, vale pular
+    const erroDoVideo = [100, 101, 150].includes(e.data);
+    falhasSeguidas++;
+
+    if (erroDoVideo && falhasSeguidas < 3 && indiceAtual + 1 < fila.length) {
+        tocarIndice(indiceAtual + 1);
+        return;
+    }
+
+    const atual = fila[indiceAtual];
+    elTitulo.textContent = 'Não foi possível reproduzir aqui';
+
+    if (e.data === 153) {
+        elArtista.textContent = 'Erro 153: verifique VPN/extensões ou abra por http://localhost:5500';
+    } else if (atual) {
+        elArtista.innerHTML = '';
+        const link = document.createElement('a');
+        link.href = `https://www.youtube.com/watch?v=${atual.id}`;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.style.color = '#1db954';
+        link.textContent = 'Abrir no YouTube';
+        elArtista.appendChild(link);
+    } else {
+        elArtista.textContent = 'Tente outro vídeo';
+    }
+}
 
 // ---------- CRIAÇÃO DO PLAYER DO YOUTUBE ----------
 function onYouTubeIframeAPIReady() {
@@ -234,17 +305,22 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         width: '200',
         height: '200',
-        playerVars: { controls: 0, playsinline: 1 },
+        playerVars: {
+            controls: 0,
+            playsinline: 1,
+            origin: window.location.origin,
+        },
         events: {
             onReady: () => {
                 playerPronto = true;
-                console.log('Player pronto!');
+                console.log('Player pronto! Origem:', window.location.origin);
+                if (pendente) {
+                    tocarVideo(pendente.video, pendente.lista);
+                    pendente = null;
+                }
             },
             onStateChange: aoMudarEstado,
-            onError: (e) => {
-                console.error('Erro do player YouTube:', e.data);
-                tocarIndice(indiceAtual + 1); // pula para o próximo
-            },
+            onError: aoDarErro,
         },
     });
 }
@@ -255,5 +331,6 @@ if (window.YT && YT.Player) {
 } else {
     const tagYT = document.createElement('script');
     tagYT.src = 'https://www.youtube.com/iframe_api';
+    tagYT.onerror = () => console.error('Não foi possível carregar a API do YouTube (bloqueador de anúncios?)');
     document.head.appendChild(tagYT);
 }
