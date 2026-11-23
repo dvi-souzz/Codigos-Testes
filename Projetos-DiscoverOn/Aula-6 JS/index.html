@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha uma cor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="colorForm">
+        <label class="text" for="myInput">Digite Uma Cor</label>
+        <input type="text" id="myInput" class="answer" autocomplete="off">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="resultado" hidden>
+        <p id="mensagem"></p>
+        <button type="button" id="voltar">Voltar</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

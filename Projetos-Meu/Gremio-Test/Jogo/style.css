@@ -1,0 +1,608 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #e9eef5;
+    color: #172b4d;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.game-container {
+    width: 100%;
+    height: 100dvh;
+    max-width: 600px;
+    margin: auto;
+    background: #f7f9fc;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 30px 22px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* INÍCIO */
+
+#start-screen {
+    background: linear-gradient(160deg, #172b4d, #254c79);
+    color: white;
+}
+
+.school-logo {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: #f6c445;
+    color: #172b4d;
+    padding: 9px 18px;
+    border-radius: 30px;
+    margin-bottom: 35px;
+}
+
+#start-screen h1,
+#victory-screen h1,
+#gameover-screen h1 {
+    font-size: clamp(35px, 10vw, 55px);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+h1 span {
+    color: #f6c445;
+}
+
+#start-screen p,
+#victory-screen p,
+#gameover-screen p {
+    font-size: 16px;
+    max-width: 290px;
+    line-height: 1.6;
+    margin: 20px 0 30px;
+}
+
+#victory-screen p span {
+    font-weight: 670;
+    color: rgba(255, 25, 14, 0.7);
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 17px 28px;
+    background: #f6c445;
+    color: #172b4d;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#start-screen small {
+    margin-top: 25px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* JOGO */
+
+#game-screen {
+    padding: 0;
+    justify-content: flex-start;
+    background: #eaf0f7;
+}
+
+.game-header {
+    width: 100%;
+    padding: 18px 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #172b4d;
+    color: white;
+    z-index: 5;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.stat small {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.stat strong {
+    font-size: 22px;
+    color: #f6c445;
+}
+
+#game-area {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: #f4f7fb;
+    background-image:
+        radial-gradient(#cbd6e5 1px, transparent 1px);
+    background-size: 25px 25px;
+    touch-action: none;
+}
+
+#objects-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.falling-object {
+    position: absolute;
+    top: 0;
+    font-size: 34px;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* PERSONAGEM */
+
+#player {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    width: 65px;
+    height: 65px;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    background: #f6c445;
+    border: 4px solid #172b4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 0 #172b4d;
+    z-index: 3;
+    will-change: left;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.player-face {
+    font-size: 25px;
+    font-weight: 900;
+    color: #172b4d;
+    pointer-events: none;
+}
+
+.game-instruction {
+    background: #172b4d;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    z-index: 5;
+}
+
+/* VITÓRIA */
+
+#victory-screen {
+    background: #172b4d;
+    color: white;
+}
+
+.victory-icon {
+    font-size: 85px;
+    margin-bottom: 20px;
+}
+
+#victory-screen button {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 12px;
+}
+
+.secondary-button {
+    background: transparent;
+    border: 2px solid #f6c445;
+    color: #f6c445;
+}
+
+/* GAME OVER */
+
+#gameover-screen {
+    background: #172b4d;
+    color: white;
+}
+
+#gameover-screen button {
+    margin-top: 15px;
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-height: 600px) {
+    .screen {
+        padding: 15px;
+    }
+
+    .school-logo {
+        margin-bottom: 15px;
+    }
+
+    #start-screen p {
+        margin: 12px 0 18px;
+    }
+
+    #player {
+        bottom: 12px;
+    }
+}
+
+
+
+/* NOTIFICAÇÃO DE FASE */
+
+#phase-notification {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    width: 85%;
+    padding: 25px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    background: #172b4d;
+    color: white;
+
+    border: 3px solid #f6c445;
+    border-radius: 18px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 10;
+    pointer-events: none;
+
+    transition: 0.3s ease;
+}
+
+#phase-notification.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#phase-notification span {
+    color: #f6c445;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#phase-notification strong {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+#phase-notification small {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* OBJETOS PERIGOSOS */
+
+.falling-object.bad {
+    filter: drop-shadow(0 0 5px #ed5555);
+}
+
+
+/* =================================
+   FUNDO DA TELA INICIAL
+================================= */
+
+#start-screen {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            #315b85 0%,
+            #203d65 45%,
+            #101e38 100%
+        );
+}
+
+/* ESTRELAS */
+
+.star-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation:
+        twinkle var(--duration) ease-in-out infinite,
+        drift calc(var(--duration) * 6) linear infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50%      { opacity: 1; }
+}
+
+@keyframes drift {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-40px); }
+}
+
+#start-screen > *:not(.star-field) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =================================
+   SALA DE AULA
+================================= */
+
+/* =================================
+   SALA DE AULA
+================================= */
+
+/* Registra as cores para poderem animar suavemente */
+@property --wall-top    { syntax: "<color>"; inherits: true; initial-value: #dce8ee; }
+@property --wall-bottom { syntax: "<color>"; inherits: true; initial-value: #b8cbd8; }
+@property --sky-1       { syntax: "<color>"; inherits: true; initial-value: #9bcce9; }
+@property --sky-2       { syntax: "<color>"; inherits: true; initial-value: #d4efff; }
+@property --floor-1     { syntax: "<color>"; inherits: true; initial-value: #c5b39d; }
+@property --floor-2     { syntax: "<color>"; inherits: true; initial-value: #a99076; }
+
+#game-area {
+    --wall-top: #dce8ee;
+    --wall-bottom: #b8cbd8;
+    --sky-1: #9bcce9;
+    --sky-2: #d4efff;
+    --floor-1: #c5b39d;
+    --floor-2: #a99076;
+
+    transition:
+        --wall-top 2s ease,
+        --wall-bottom 2s ease,
+        --sky-1 2s ease,
+        --sky-2 2s ease,
+        --floor-1 2s ease,
+        --floor-2 2s ease;
+
+    background: #dce6ed;
+    isolation: isolate;
+}
+
+/* FUNDO PRINCIPAL */
+
+.classroom-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* PAREDE */
+
+.classroom-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        var(--wall-top) 0%,
+        var(--wall-bottom) 100%
+    );
+}
+
+/* JANELA */
+
+.room-window {
+    position: absolute;
+    top: 9%;
+    right: 8%;
+
+    width: 27%;
+    height: 23%;
+
+    border: 7px solid #8a9eae;
+    border-radius: 5px;
+
+    background: linear-gradient(
+        135deg,
+        var(--sky-1),
+        var(--sky-2)
+    );
+
+    box-shadow: 0 5px 10px rgba(23,43,77,0.15);
+}
+
+.room-window::before {
+    content: "";
+    position: absolute;
+
+    width: 5px;
+    height: 100%;
+
+    left: 50%;
+    background: #8a9eae;
+}
+
+.room-window::after {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 5px;
+
+    top: 50%;
+    background: #8a9eae;
+}
+
+/* NUVENS NA JANELA */
+
+.room-window div {
+    position: absolute;
+    width: 35px;
+    height: 12px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    top: 25%;
+    left: 10%;
+}
+
+/* QUADRO */
+
+.classroom-board {
+    position: absolute;
+
+    top: 13%;
+    left: 8%;
+
+    width: 48%;
+    height: 24%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #416c61;
+
+    border: 9px solid #96724e;
+    border-radius: 4px;
+
+    box-shadow:
+        0 7px 12px rgba(23,43,77,0.2),
+        inset 0 0 15px rgba(0,0,0,0.2);
+
+    transform: rotate(-0.5deg);
+}
+
+.classroom-board span {
+    color: rgba(255,255,255,0.8);
+    font-size: clamp(7px, 2vw, 12px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 5px;
+}
+
+/* CHÃO */
+
+.room-floor {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 17%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 48px,
+            rgba(23,43,77,0.08) 49px 50px
+        ),
+        linear-gradient(
+            180deg,
+            var(--floor-1),
+            var(--floor-2)
+        );
+
+    border-top: 6px solid #9c876e;
+}
+
+/* CAMADA DOS OBJETOS */
+#objects-container {
+    z-index: 2;
+}
+
+#player {
+    z-index: 3;
+}
+
+#player {
+    animation: playerIdle 1.8s ease-in-out infinite;
+}
+
+@keyframes playerIdle {
+
+    0%, 100% {
+        margin-bottom: 0;
+    }
+
+    50% {
+        margin-bottom: 5px;
+    }
+
+}
+
+.object-icon {
+    display: inline-block;
+    animation: objectSpin 2s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes objectSpin {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}

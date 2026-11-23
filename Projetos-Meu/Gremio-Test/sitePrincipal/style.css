@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* =================================
+   VARIÁVEIS (mude as cores aqui)
+================================= */
+
+:root {
+    --navy: #172b4d;
+    --navy-2: #254c79;
+    --yellow: #f6c445;
+    --bg: #f4f7fb;
+    --line: #cbd6e5;
+    --text: #44546f;
+
+    --wood-1: #b98b5a;
+    --wood-2: #96724e;
+    --wood-dark: #6b4d30;
+
+    --card-w: min(78vw, 400px);
+    --gap: 16px; /* precisa ser igual ao 16 do script.js */
+}
+
+/* =================================
+   BASE
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* o header fixo não cobre o destino dos links */
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Nunito', sans-serif;
+    color: var(--navy);
+
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+
+    overflow-x: hidden;
+    overscroll-behavior: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 14px 20px;
+
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: white;
+
+    border-bottom: 4px solid var(--yellow);
+    box-shadow: 0 6px 18px rgba(23, 43, 77, 0.25);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--yellow);
+}
+
+.options {
+    display: flex;
+    gap: 6px;
+}
+
+.options a {
+    padding: 8px 14px;
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: background 0.2s, color 0.2s;
+}
+
+.options a:hover,
+.options a:focus-visible {
+    background: var(--yellow);
+    color: var(--navy);
+    outline: none;
+}
+
+/* =================================
+   CONTEÚDO PRINCIPAL
+================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 22px;
+}
+
+/* =================================
+   MENU DE CATEGORIAS
+================================= */
+
+.category {
+    display: flex;
+    gap: 10px;
+    padding: 4px 20px 8px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category::-webkit-scrollbar {
+    display: none;
+}
+
+/* centraliza quando cabe, e deixa rolar quando não cabe */
+.category .item:first-child { margin-left: auto; }
+.category .item:last-child  { margin-right: auto; }
+
+.item {
+    flex: 0 0 auto;
+
+    padding: 10px 18px;
+    border-radius: 30px;
+
+    background: white;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+
+    transition: transform 0.15s, background 0.2s, color 0.2s;
+}
+
+.item:active {
+    transform: scale(0.95);
+}
+
+.item.active {
+    background: var(--navy);
+    color: var(--yellow);
+    box-shadow: 0 4px 0 var(--yellow);
+}
+
+.item:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+}
+
+/* =================================
+   PLACA PENDURADA
+================================= */
+
+.sign-wrapper {
+    position: relative;
+    padding-top: 46px;
+    margin-top: 22px;
+    margin-bottom: 26px;
+}
+
+/* viga de madeira no topo */
+.sign-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 12px;
+    border-radius: 8px;
+
+    background: linear-gradient(180deg, var(--wood-1), var(--wood-2));
+    border: 2px solid var(--wood-dark);
+    box-shadow: 0 4px 8px rgba(23, 43, 77, 0.2);
+}
+
+.sign {
+    position: relative;
+    width: min(86%, 360px);
+    margin: 0 auto;
+    padding: 20px 16px;
+
+    text-align: center;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 22px,
+            rgba(0, 0, 0, 0.05) 23px 24px
+        ),
+        linear-gradient(180deg, var(--wood-1), var(--wood-2));
+
+    border: 4px solid var(--wood-dark);
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 20px rgba(23, 43, 77, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.25);
+
+    /* balança presa na viga, lá em cima */
+    transform-origin: 50% -46px;
+    animation: swing 4.5s ease-in-out infinite;
+}
+
+.sign h2 {
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #fff8e6;
+    text-shadow: 0 2px 0 var(--wood-dark);
+}
+
+/* CORRENTES */
+
+.chain {
+    position: absolute;
+    top: -46px;
+    width: 8px;
+    height: 46px;
+    border-radius: 4px;
+
+    background: repeating-linear-gradient(
+        180deg,
+        #9fb0c0 0 8px,
+        #5d7083 8px 12px
+    );
+}
+
+.chain::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: -3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 35% 35%, #d7dfe7, #5d7083);
+    border: 2px solid var(--wood-dark);
+}
+
+.chain.left  { left: 20%; }
+.chain.right { right: 20%; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-1.8deg); }
+    50%      { transform: rotate(1.8deg); }
+}
+
+/* =================================
+   CARROSSEL
+================================= */
+
+.carousel-section {
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap);
+
+    /* centraliza o primeiro e o último card */
+    padding: 10px calc(50% - var(--card-w) / 2) 60px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel:active {
+    cursor: grabbing;
+}
+
+/* =================================
+   CARDS
+================================= */
+
+.card {
+    flex: 0 0 var(--card-w);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    padding: 14px 14px 22px;
+
+    background: white;
+    border-radius: 22px;
+    border: 2px solid var(--navy);
+    box-shadow: 6px 6px 0 var(--navy);
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+
+    animation: cardIn 0.5s ease both;
+}
+
+.card:nth-child(even) {
+    margin-top: 50px; /* zigzag */
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+
+    border-radius: 14px;
+    pointer-events: none;
+
+    /* cor de reserva enquanto não há imagem */
+    background: linear-gradient(135deg, #dbe5f1, #b9cbe0);
+}
+
+.card h3 {
+    margin-top: 16px;
+
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--navy);
+}
+
+.card h3::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 5px;
+    margin-top: 8px;
+    border-radius: 5px;
+    background: var(--yellow);
+}
+
+.card p {
+    margin-top: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: var(--text);
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   CONTROLES
+================================= */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+.controls button {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+
+    background: var(--navy);
+    color: var(--yellow);
+    border: none;
+
+    font-size: 16px;
+    box-shadow: 0 4px 0 var(--yellow);
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--yellow);
+}
+
+.counter {
+    min-width: 84px;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.counter strong {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--navy);
+}
+
+/* no celular só arrasta: esconde as setas */
+@media (hover: none) and (pointer: coarse) {
+    .controls button {
+        display: none;
+    }
+}
+
+/* =================================
+   TRACINHOS DE PROGRESSO
+================================= */
+
+.progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px 20px 36px;
+}
+
+.progress span {
+    width: 26px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--line);
+
+    transition: background 0.3s, width 0.3s;
+}
+
+.progress span.active {
+    width: 42px;
+    background: var(--yellow);
+    box-shadow: 0 0 0 1px var(--navy);
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 26px 20px;
+
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: white;
+
+    border-top: 4px solid var(--yellow);
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 20px;
+    border-radius: 30px;
+
+    font-weight: 800;
+    font-size: 15px;
+
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+footer a:hover,
+footer a:focus-visible {
+    background: var(--yellow);
+    color: var(--navy);
+    border-color: var(--yellow);
+    outline: none;
+}
+
+/* =================================
+   TELAS PEQUENAS E ACESSIBILIDADE
+================================= */
+
+@media (max-width: 380px) {
+    header {
+        padding: 12px 14px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .options a {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+}
+
+/* quem desativou animações no celular não vê balanço nem entrada */
+@media (prefers-reduced-motion: reduce) {
+    .sign,
+    .card {
+        animation: none;
+    }
+
+    html,
+    .carousel {
+        scroll-behavior: auto;
+    }
+}
+
+/* =================================
+   TEMAS
+================================= */
+
+/* Registra as cores para a troca de tema virar um fade suave */
+@property --navy     { syntax: "<color>"; inherits: true; initial-value: #172b4d; }
+@property --navy-2   { syntax: "<color>"; inherits: true; initial-value: #254c79; }
+@property --yellow   { syntax: "<color>"; inherits: true; initial-value: #f6c445; }
+@property --bg       { syntax: "<color>"; inherits: true; initial-value: #f4f7fb; }
+@property --line     { syntax: "<color>"; inherits: true; initial-value: #cbd6e5; }
+@property --text     { syntax: "<color>"; inherits: true; initial-value: #44546f; }
+@property --wood-1   { syntax: "<color>"; inherits: true; initial-value: #b98b5a; }
+@property --wood-2   { syntax: "<color>"; inherits: true; initial-value: #96724e; }
+@property --wood-dark{ syntax: "<color>"; inherits: true; initial-value: #6b4d30; }
+
+body {
+    transition:
+        --navy 0.8s ease, --navy-2 0.8s ease, --yellow 0.8s ease,
+        --bg 0.8s ease, --line 0.8s ease, --text 0.8s ease,
+        --wood-1 0.8s ease, --wood-2 0.8s ease, --wood-dark 0.8s ease;
+}
+
+/* TEMA PADRÃO: grêmio (azul e amarelo) */
+body[data-theme="gremio"] {
+    --navy: #172b4d;
+    --navy-2: #254c79;
+    --yellow: #f6c445;
+    --bg: #f4f7fb;
+    --line: #cbd6e5;
+    --text: #44546f;
+    --wood-1: #b98b5a;
+    --wood-2: #96724e;
+    --wood-dark: #6b4d30;
+}
+
+/* TEMA EVENTOS: roxo, rosa e laranja de festa */
+body[data-theme="eventos"] {
+    --navy: #3b1d6e;
+    --navy-2: #7b2cbf;
+    --yellow: #ff9f1c;
+    --bg: #fff4fa;
+    --line: #f2c6dd;
+    --text: #5b4a73;
+    --wood-1: #ff6fa5;
+    --wood-2: #d63384;
+    --wood-dark: #8a1c55;
+}
+
+/* conteúdo fica acima do confete */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* CONFETE DE FUNDO (só no tema eventos) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, #ff4d8d 3px, transparent 4px),
+        radial-gradient(circle, #ff9f1c 3px, transparent 4px),
+        radial-gradient(circle, #4cc9f0 3px, transparent 4px),
+        radial-gradient(circle, #7b2cbf 3px, transparent 4px);
+    background-size: 130px 130px, 170px 170px, 110px 110px, 150px 150px;
+    background-position: 10px 20px, 80px 90px, 40px 60px, 100px 10px;
+
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+body[data-theme="eventos"]::before {
+    opacity: 0.35;
+}
+
+/* BANDEIRINHAS DE FESTA JUNINA, abaixo do header */
+header::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 26px;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        90deg,
+        #ff4d8d 0 36px,
+        #ff9f1c 36px 72px,
+        #4cc9f0 72px 108px,
+        #7bd957 108px 144px
+    );
+
+    /* recorta cada faixa em triângulo */
+    -webkit-mask: conic-gradient(from 150deg at 50% 0, #000 60deg, transparent 0) 0 0 / 36px 100%;
+            mask: conic-gradient(from 150deg at 50% 0, #000 60deg, transparent 0) 0 0 / 36px 100%;
+
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body[data-theme="eventos"] header::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ETIQUETA E EMOJI DOS CARDS */
+.card-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+
+    font-size: 72px;
+    background: linear-gradient(135deg, var(--line), var(--bg));
+}
+
+.card-tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 12px;
+    border-radius: 20px;
+
+    background: var(--navy);
+    color: var(--yellow);
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-tag + h3 {
+    margin-top: 10px;
+}
+
+/* a placa "pula" quando a categoria muda */
+.sign.change {
+    animation: signDrop 0.7s cubic-bezier(0.3, 1.4, 0.5, 1), swing 4.5s ease-in-out 0.7s infinite;
+}
+
+@keyframes signDrop {
+    from { transform: rotate(-12deg); }
+    to   { transform: rotate(0deg); }
+}

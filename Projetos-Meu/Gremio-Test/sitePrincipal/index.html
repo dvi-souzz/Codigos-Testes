@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#172b4d">
+    <title>Chapa X</title>
+    <meta property="og:title" content="Chapa X | Propostas">
+    <meta property="og:description" content="Conheça o que a gente quer mudar na escola.">
+    <meta property="og:image" content="https://SEU-SITE/img/capa.jpg">
+    <meta name="description" content="Propostas da Chapa X para o grêmio estudantil.">
+
+    <!-- Mesma fonte do jogo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="gremio">
+
+    <header>
+        <div class="logo">Chapa "X"</div>
+        <nav class="options">
+            <a href="#propostas">Categorias</a>
+            <a href="#home">Propostas</a>
+        </nav>
+    </header>
+
+    <main id="propostas">
+
+        <!-- Botões para trocar de categoria -->
+        <nav class="category" id="category">
+            <button type="button" class="item active" data-categoria="inicio">Início</button>
+            <button type="button" class="item" data-categoria="gremio">Propostas do Grêmio</button>
+            <button type="button" class="item" data-categoria="eventos">Eventos</button>
+        </nav>
+
+        <!-- PLACA PENDURADA (o texto troca pelo JS) -->
+        <div class="sign-wrapper">
+            <div class="sign">
+                <span class="chain left"></span>
+                <span class="chain right"></span>
+                <h2 id="sign-title">Propostas do Grêmio</h2>
+            </div>
+        </div>
+
+        <!-- CARROSSEL -->
+        <section class="carousel-section">
+
+            <div class="carousel" id="carousel">
+
+                <!-- Cards de exemplo. Depois o JS pode criar esses cards -->
+            </div>
+
+            <!-- CONTROLES -->
+            <div class="controls">
+                <button type="button" id="prev" aria-label="Proposta anterior">&#10094;</button>
+
+                <span class="counter">
+                    <strong id="current">01</strong> / <span id="total">02</span>
+                </span>
+
+                <button type="button" id="next" aria-label="Próxima proposta">&#10095;</button>
+            </div>
+
+            <!-- Tracinhos de progresso (o JS cria um por card) -->
+            <div class="progress" id="progress"></div>
+
+        </section>
+    </main>
+
+    <footer id="home">
+        <a href="https://instagram.com/jvfmx" target="_blank" rel="noopener" aria-label="Instagram da chapa">
+            <!-- Ícone simples; pode trocar por uma imagem depois -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+            </svg>
+            <span>@chapa_Ubuntu</span>
+
+        </a>
+        <a
+            href="https://wa.me/?text=Olha%20essa%20proposta%20da%20Chapa%20X%3A%20https%3A%2F%2Fseu-site">Compartilhar</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
